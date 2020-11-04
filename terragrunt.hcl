@@ -11,17 +11,17 @@ terraform {
 remote_state {
   backend = "azurerm"
   config = {
-    resource_group_name     = "mgt-rg"
-    storage_account_name    = "tfstatesasoops"
-    container_name          = "tfstatestorage"
-    key                     = "${path_relative_to_include()}/terraform.tfstate"
+    resource_group_name  = "mgt-rg"
+    storage_account_name = "tfstatesasoops"
+    container_name       = "tfstatestorage"
+    key                  = "${path_relative_to_include()}/terraform.tfstate"
   }
 }
 
 generate "provider" {
-  path = "provider.tf"
+  path      = "provider.tf"
   if_exists = "overwrite_terragrunt"
-  contents = <<EOF
+  contents  = <<EOF
 provider "azurerm" {
   features {}
   version = "~>2.5.0"
