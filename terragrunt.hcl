@@ -1,6 +1,6 @@
 terraform {
   extra_arguments "common_vars" {
-    commands = ["plan", "apply", "destroy"]
+    commands = ["plan", "destroy"]
 
     arguments = [
       "-var-file=${get_terragrunt_dir()}/../../env-vars/standup.tfvars"
