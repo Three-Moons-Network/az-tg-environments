@@ -10,7 +10,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - script: 'echo $PATH'
+  - script: 'echo $PWD; echo $PATH'
 
 # steps:
 #- script: echo Hello, world!
