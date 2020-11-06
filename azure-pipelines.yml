@@ -10,7 +10,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - script: 'pwd; cd dev; terragrunt init; terragrunt plan -out my.plan; terragrunt apply my.plan'
+  - script: 'pwd; ls -alh; which terraform;'
+#cd dev; terragrunt init; terragrunt plan -out my.plan; terragrunt apply my.plan'
 
 # steps:
 #- script: echo Hello, world!
