@@ -14,7 +14,7 @@ steps:
   unzip terraform_0.13.5_linux_amd64.zip;
   wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.26.0/terragrunt_linux_amd64; mv terragrunt_linux_amd64 terragrunt; chmod +x terragrunt;
   mkdir bin; mv terraform bin/.; mv terragrunt bin/.;
-  export PATH=$PWD/bin:$PATH; cd dev; ls -alh'
+  export PATH=$PWD/bin:$PATH; cd dev/aks-storage; terragrunt init'
 
 # steps:
 #- script: echo Hello, world!
