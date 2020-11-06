@@ -4,16 +4,25 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- main
 
 pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - script: |
+    wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.26.0/terragrunt_linux_amd64 |
+    mv terragrunt_linux_amd64 /usr/bin/terragrunt |
+    wget https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip |
+    unzip terraform_0.13.5_linux_amd64.zip | mv terraform /usr/bin/terraform | 
+    pwd | cd dev | terragrunt init | terragrunt plan -out my.plan | terragrunt apply my.plan
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+
+# steps:
+#- script: echo Hello, world!
+#  displayName: 'Run a one-line script'
+
+#- script: |
+#    echo Add other tasks to build, test, and deploy your project.
+#    echo See https://aka.ms/yaml
+#  displayName: 'Run a multi-line script'
