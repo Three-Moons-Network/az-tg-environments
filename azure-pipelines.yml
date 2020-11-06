@@ -13,7 +13,7 @@ steps:
   - script: 'wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.26.0/terragrunt_linux_amd64;
     wget https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip;
     unzip terraform_0.13.5_linux_amd64.zip;
-    pwd; cd dev; terragrunt init; terragrunt plan -out my.plan; terragrunt apply my.plan'
+    pwd; cd dev; ../terragrunt init; ../terragrunt plan -out my.plan; ../terragrunt apply my.plan'
 
 # steps:
 #- script: echo Hello, world!
