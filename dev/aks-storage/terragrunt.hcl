@@ -3,7 +3,7 @@ include {
 }
 
 terraform {
-  source = "git@github.com:linuxlsr/az-base-resources.git//"
+  source = "git::ssh://git@github.com:linuxlsr/az-base-resources.git//"
 }
 inputs = {
   environment = "default"
