@@ -3,7 +3,7 @@ terraform {
     commands = ["plan", "destroy"]
 
     arguments = [
-      "-var-file=../../env-vars/standup.tfvars"
+      "-var-file=${get_terragrunt_dir()}/../../env-vars/standup.tfvars"
     ]
   }
 }
