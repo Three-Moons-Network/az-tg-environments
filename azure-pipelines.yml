@@ -11,7 +11,7 @@ pool:
 
 steps:
   - script: 'echo $PWD; echo $PATH; echo "loading terraform";
-  - wget https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip;
+  wget https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip;
   unzip terraform_0.13.5_linux_amd64.zip;
   echo "loading terragrunt";
   wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.26.0/terragrunt_linux_amd64; mv terragrunt_linux_amd64 terragrunt; chmod +x terragrunt;
@@ -19,8 +19,8 @@ steps:
   echo "accept ssh w/o host key checking";
   ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true;
   export PATH=$PWD/bin:$PATH; cd dev/aks-storage;
-  echo "initializing terragrunt";
-  terragrunt init'
+  echo "initializing terragrunt";'
+#  terragrunt init'
 
 # steps:
 #- script: echo Hello, world!
