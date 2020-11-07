@@ -9,6 +9,8 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+variables:
+  - group: common.env
 steps:
   - script: 'echo $PWD; echo $PATH; echo "loading terraform";
   wget https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip;
@@ -19,9 +21,9 @@ steps:
   export PATH=$PWD/bin:$PATH; echo cd dev/aks-storage;
   echo "path = $PATH";
   az login;
-  az account set --subscription "Azure for Students";'
-#  echo "initializing terragrunt";
-#  terragrunt init'
+  az account set --subscription "Azure for Students";
+  echo "initializing terragrunt";
+  terragrunt init'
 
 # steps:
 #- script: echo Hello, world!
