@@ -18,8 +18,9 @@ steps:
   mkdir bin; mv terraform bin/.; mv terragrunt bin/.;
   export PATH=$PWD/bin:$PATH; echo cd dev/aks-storage;
   echo "path = $PATH";
-  echo "initializing terragrunt";
-  terragrunt init'
+  az account list;'
+#  echo "initializing terragrunt";
+#  terragrunt init'
 
 # steps:
 #- script: echo Hello, world!
