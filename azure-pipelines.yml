@@ -16,9 +16,8 @@ steps:
   echo "loading terragrunt";
   wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.26.0/terragrunt_linux_amd64; mv terragrunt_linux_amd64 terragrunt; chmod +x terragrunt;
   mkdir bin; mv terraform bin/.; mv terragrunt bin/.;
-#  echo "accept ssh w/o host key checking";
-#  ssh -T -oStrictHostKeyChecking=accept-new git@github.com || true;
-  export PATH=$PWD/bin:$PATH; cd dev/aks-storage;
+  export PATH=$PWD/bin:$PATH; echo cd dev/aks-storage;
+  path = $PATH";
   echo "initializing terragrunt";'
 #  terragrunt init'
 
