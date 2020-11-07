@@ -23,7 +23,7 @@ steps:
   az login;
   az account set --subscription "Azure for Students";
   echo "initializing terragrunt";
-  terragrunt init'
+  terragrunt init; terragrunt plan -out test.plan; terragrunt apply test.plan'
 
 # steps:
 #- script: echo Hello, world!
