@@ -23,9 +23,10 @@ steps:
   export PATH=$PWD/bin:$PATH;
   cd dev/aks-storage;
   echo "path = $PATH";
-  az account set --subscription "Azure for Students";
-  echo "initializing terragrunt";
-  terragrunt init; terragrunt plan -out test.plan; terragrunt apply test.plan'
+  az account list'
+  #az account set --subscription "Azure for Students";
+  #echo "initializing terragrunt";
+  #terragrunt init; terragrunt plan -out test.plan; terragrunt apply test.plan'
 
 # steps:
 #- script: echo Hello, world!
