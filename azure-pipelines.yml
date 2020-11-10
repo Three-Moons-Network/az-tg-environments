@@ -1,53 +1,9 @@
 stages:
-- stage: validate
-  jobs:
-  - job: validate
+- stage: init
   steps:
-  - task: TerraformInstaller@0
-    displayName: init
+  - task: installTerragrunt@0
     inputs:
-      terraformVersion: '0.13.5'
-  - task: TerraformTaskV1@0
+      terragruntversion: '0.18.4'
+  - task: TerragruntInit
     inputs:
-      provider: 'azurerm'
-      command: 'init'
-      backendServiceArm: 'mgt-rg'
-      backendAzureRmResourceGroupName: 'mgt-rg'
-      backendAzureRmStorageAccountName: 'tfstatesasoops'
-      backendAzureRmContainerName: 'tfstatestorage'
-      backendAzureRmKey: 'terraform.state'
-  - task: TerraformTaskV1@0
-    displayName: 'validate'
-    inputs:
-      provider: 'azurerm'
-      command: 'validate'
-- stage: deploy
-  jobs:
-  - deployment: deploy_tf
-    continueOnError: false
-    environment: 'dev'
-    strategy:
-     runOnce:
-       deploy:
-        steps:
-        - checkout: self
-        - task: TerraformInstaller@0
-          displayName: 'install'
-          inputs:
-            terraformVersion: '0.13.5'
-        - task: TerraformTaskV1@0
-          displayName: 'init'
-          inputs:
-            provider: 'azurerm'
-            command: 'init'
-            backendServiceArm: 'mgt-rg'
-            backendAzureRmResourceGroupName: 'mgt-rg'
-            backendAzureRmStorageAccountName: 'tfstatesasoops'
-            backendAzureRmContainerName: 'tfstatestorage'
-            backendAzureRmKey: 'terraform.tfstate'
-        - task: TerraformTaskV1@0
-          inputs:
-            provider: 'azurerm'
-            command: 'plan'
-            commandOptions: '--var-file standup.tfvars'
-            environmentServiceNameAzureRM: 'mgt-rg'
+      command: 'terragrunt init'
