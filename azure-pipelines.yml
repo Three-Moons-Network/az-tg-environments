@@ -1,9 +1,11 @@
 stages:
 - stage: init
-  steps:
-  - task: installTerragrunt@0
-    inputs:
-      terragruntversion: '0.18.4'
-  - task: TerragruntInit
-    inputs:
-      command: 'terragrunt init'
+  jobs:
+  - job: 
+    steps:
+    - task: installTerragrunt@0
+      inputs:
+        terragruntversion: '0.18.4'
+    - task: TerragruntInit
+      inputs:
+        script: 'terragrunt init'
