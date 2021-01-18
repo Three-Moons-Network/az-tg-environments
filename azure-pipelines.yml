@@ -6,6 +6,8 @@ stages:
     - task: installTerragrunt@0
       inputs:
         terragruntversion: '0.18.4'
-    - task: TerragruntInit@1
+    - task: Bash@3
       inputs:
-        script: 'terragrunt init'
+        targetType: 'inline'
+        script: |
+          terragrunt init
